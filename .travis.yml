@@ -1,18 +1,28 @@
 sudo: required
-
 services:
   - docker
 
-install:
-  - docker run --rm -w "/doc" -v $(pwd):/doc thomasweise/texlive make
-
 script:
-  - if [ -e output/index.pdf ]; then exit 0; else exit 1; fi
+  # Build pdf with docker.
+  - docker run --rm -w "/doc" -v $(pwd):/doc thomasweise/texlive make
+  # Test if output pdf file exist.
+  - if [ ! -f output/index.pdf ] ; then exit 1 ; fi
 
-cache:
-  bundler: true
-  directories:
-    - $HOME/docker
+after_success:
+  # Deploy public/ folder to GitHub pages.
+  - cp output/index.pdf public/michaelhsu-cv.pdf
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $github_token
+  local_dir: public
+  on:
+    branch: master
 
 notifications:
   email: evenchange4@gmail.com
+
+env:
+  global:
+    secure: Cc7Uhos8p0ApYnwTljsdyXrPfwZo8orV1en78eiSSyPKQ1NqGwUR104KPMuOb77XxbGAuMzolGjGqma5J59c8X/AB59s33DycX3SADZchPf8Rs8t9GarskOhadrO2UEeRMN6BXPs8qeA14YLtnELr01ER5nZE/CucjK9Lu5ymU2US+tm4uX+F0VDE/HzJuIXkBgzfH7nCDjVRgzyKEjWHPL+HUKzVVj84KMYi2O2TdqPkjsv8nW7t3g15An+ynRdOA2UYdyBBk/fx4zpS7e11vn0xwvR3MJB5IbZvM0VjjVCRshXvdELthQcUNTW7Zti6RWJAI8PakS/5TQEAcsIULkHWYjL7kHWpzhAyR9bDk9RaM86npznmVLSAcxl//leecGYMzcHQ4WotNnaTE26ptlIKMcfahNvIrSvvD1O5T6iAqy7A0bjqfaocQu09g5+19IG/dbJeewOvBaes/OMCiwyyfjHCi8DEKZGsY3SMnyv9hqBlsTx+1wHfvdpdovWzhG8N0Ftu/7OmeV/MohqTo5+YoILeOU26tYmnhtO1IRUm3LpxYwjtGSGxX6R6GerBuWWnzZ4WUQZ8muLzcydcNsMZ/sCImE5RKZIiETvL4vm8WmTv+A3GL1ut6cemAO1ZYmK66LGCTFP/jOM+JVEJkjtj5TGgJvadYv9nWanGH0=

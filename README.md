@@ -3,7 +3,7 @@
 [![Travis][travis-badge]][travis]
 [![license][license-badge]][license]
 
-## Docker
+## Usage
 
 ```shell
 $ docker pull homasweise/texlive
@@ -18,7 +18,15 @@ $ fswatch -0 ./src | xargs -0 -n 1 -I {} \
   docker run --rm -w "/doc" -v $(pwd):/doc thomasweise/texlive make pdf
 ```
 
-## Reference
+## Deploy to GitHub pages
+
+> Any git commits push to master branch.
+
+```shell
+$ git push origin master
+```
+
+## Inspiration
 
 - https://github.com/posquit0/Awesome-CV
 
