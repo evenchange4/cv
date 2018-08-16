@@ -1,0 +1,18 @@
+sudo: required
+
+services:
+  - docker
+
+install:
+  - docker run --rm -w "/doc" -v $(pwd):/doc thomasweise/texlive make
+
+script:
+  - if [ -e output/index.pdf ]; then exit 0; else exit 1; fi
+
+cache:
+  bundler: true
+  directories:
+    - $HOME/docker
+
+notifications:
+  email: evenchange4@gmail.com
