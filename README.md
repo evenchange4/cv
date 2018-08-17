@@ -3,6 +3,10 @@
 [![Travis][travis-badge]][travis]
 [![license][license-badge]][license]
 
+## Demo
+
+- https://cv.michaelhsu.tw
+
 ## Usage
 
 ```shell
@@ -12,8 +16,13 @@ $ docker run --rm \
   -v $(pwd):/doc \
   thomasweise/texlive \
   make
+```
 
-# Development on mac with live reloading
+## Development
+
+Live reload on Mac:
+
+```
 $ fswatch -0 ./src | xargs -0 -n 1 -I {} \
   docker run --rm -w "/doc" -v $(pwd):/doc thomasweise/texlive make pdf
 ```
