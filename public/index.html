@@ -16,10 +16,18 @@
     ga('send', 'pageview', {
       'hitCallback': redirect
     });
+
+    setTimeout(loading, 800); // Placeholder
     setTimeout(redirect, 1500);
 
     function redirect() {
       window.location = "michaelhsu-cv.pdf";
+    }
+
+    function loading() {
+      document.write(
+        "Redirect to <a href=\"https://cv.michaelhsu.tw/michaelhsu-cv.pdf\">https://cv.michaelhsu.tw/michaelhsu-cv.pdf</a>..."
+      );
     }
 
   </script>
