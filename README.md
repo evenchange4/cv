@@ -51,7 +51,7 @@ $ git push origin master
 
 MIT: [http://michaelhsu.mit-license.org](http://michaelhsu.mit-license.org)
 
-[travis-badge]: https://travis-ci.com/evenchange4/ethereum-hot-wallet.svg?branch=master
-[travis]: https://travis-ci.org/evenchange4/ethereum-hot-wallet
-[license-badge]: https://img.shields.io/github/license/evenchange4/micro-website-api.svg?style=flat-square
+[travis-badge]: https://travis-ci.com/evenchange4/cv.svg?branch=master
+[travis]: https://travis-ci.com/evenchange4/cv
+[license-badge]: https://img.shields.io/github/license/evenchange4/cv.svg?style=flat-square
 [license]: http://michaelhsu.mit-license.org/
