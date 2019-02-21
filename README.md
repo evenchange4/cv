@@ -10,7 +10,7 @@
 ## Usage
 
 ```shell
-$ docker pull homasweise/texlive
+$ docker pull thomasweise/texlive
 $ docker run --rm \
   -w "/doc" \
   -v $(pwd):/doc \
