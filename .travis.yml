@@ -4,7 +4,7 @@ services:
 
 script:
   # Build pdf with docker.
-  - docker run --rm -w "/doc" -v $(pwd):/doc thomasweise/texlive make
+  - docker run --rm -w "/doc" -v $(pwd):/doc thomasweise/texlive:1.0.0 make
   # Test if output pdf file exist.
   - if [ ! -f output/index.pdf ] ; then exit 1 ; fi
 
@@ -21,7 +21,8 @@ deploy:
     branch: master
 
 notifications:
-  email: evenchange4@gmail.com
+  email:
+    - evenchange4@gmail.com
 
 env:
   global:

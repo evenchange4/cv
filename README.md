@@ -10,11 +10,11 @@
 ## Usage
 
 ```shell
-$ docker pull thomasweise/texlive
+$ docker pull thomasweise/texlive:1.0.0
 $ docker run --rm \
   -w "/doc" \
   -v $(pwd):/doc \
-  thomasweise/texlive \
+  thomasweise/texlive:1.0.0 \
   make
 ```
 
@@ -24,7 +24,7 @@ Live reload on Mac:
 
 ```
 $ fswatch -0 ./src | xargs -0 -n 1 -I {} \
-  docker run --rm -w "/doc" -v $(pwd):/doc thomasweise/texlive make pdf
+  docker run --rm -w "/doc" -v $(pwd):/doc thomasweise/texlive:1.0.0 make pdf
 ```
 
 ## Deploy to GitHub pages
