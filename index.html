@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>cv.michaelhsu.tw</title>
+  <script async src='https://www.google-analytics.com/analytics.js'></script>
+  <script>
+    window.ga = window.ga || function () {
+      (ga.q = ga.q || []).push(arguments)
+    };
+    ga.l = +new Date;
+    ga('create', 'UA-33845990-15', 'auto');
+    ga('send', 'pageview', {
+      'hitCallback': redirect
+    });
+
+    setTimeout(loading, 800); // Placeholder
+    setTimeout(redirect, 1500);
+
+    function redirect() {
+      window.location = "michaelhsu-cv.pdf";
+    }
+
+    function loading() {
+      document.write(
+        "Redirect to <a href=\"https://cv.michaelhsu.tw/michaelhsu-cv.pdf\">https://cv.michaelhsu.tw/michaelhsu-cv.pdf</a>..."
+      );
+    }
+
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <div>
+      Please download the PDF to view it:
+    </div>
+    <a href="https://cv.michaelhsu.tw/michaelhsu-cv.pdf">https://cv.michaelhsu.tw/michaelhsu-cv.pdf</a>
+  </noscript>
+</body>
+
+</html>
